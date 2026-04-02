@@ -18,14 +18,20 @@ function isIndianBlock(blockEl) {
 
 function filterBlocks() {
   const blocks = document.querySelectorAll('[data-test="StartupResult"]');
+  let hidden = 0;
   for (const block of blocks) {
     if (block.style.display === 'none') continue;
     if (isIndianBlock(block)) {
       block.style.display = 'none';
+      const name = block.querySelector('h2')?.textContent?.trim() ?? '(unknown)';
+      console.log(`[WF Filter] Hidden: ${name}`);
+      hidden++;
     }
   }
+  if (hidden > 0) console.log(`[WF Filter] Hid ${hidden} block(s) this pass`);
 }
 
+console.log('[WF Filter] content script loaded');
 filterBlocks();
 
 const observer = new MutationObserver(filterBlocks);
