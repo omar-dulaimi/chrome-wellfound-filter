@@ -5,7 +5,7 @@
   "description": "Hides India-based or INR-compensated job listings on Wellfound.",
   "content_scripts": [
     {
-      "matches": ["*://wellfound.com/jobs*"],
+      "matches": ["https://www.wellfound.com/jobs*"],
       "js": ["content.js"],
       "run_at": "document_idle"
     }
