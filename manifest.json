@@ -1,9 +1,13 @@
 {
   "manifest_version": 3,
   "name": "Wellfound India Filter",
-  "version": "1.0",
-  "description": "Hides India-based or INR-compensated job listings on Wellfound.",
+  "version": "1.1",
+  "description": "Hides Wellfound job listings based on configurable filter rules.",
+  "permissions": ["storage"],
   "host_permissions": ["https://wellfound.com/*"],
+  "action": {
+    "default_popup": "popup.html"
+  },
   "content_scripts": [
     {
       "matches": ["https://wellfound.com/jobs*"],
