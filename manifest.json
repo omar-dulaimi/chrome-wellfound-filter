@@ -1,12 +1,18 @@
 {
   "manifest_version": 3,
   "name": "Wellfound India Filter",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Hides Wellfound job listings based on configurable filter rules.",
+  "icons": {
+    "128": "icon.svg"
+  },
   "permissions": ["storage"],
   "host_permissions": ["https://wellfound.com/*"],
   "action": {
-    "default_popup": "popup.html"
+    "default_popup": "popup.html",
+    "default_icon": {
+      "128": "icon.svg"
+    }
   },
   "content_scripts": [
     {
