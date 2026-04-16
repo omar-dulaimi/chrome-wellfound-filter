@@ -4,15 +4,15 @@
   "version": "1.2",
   "description": "Hides Wellfound job listings based on configurable filter rules.",
   "icons": {
-    "128": "icon.svg"
+    "48": "icon.png",
+    "96": "icon.png",
+    "128": "icon.png"
   },
   "permissions": ["storage"],
   "host_permissions": ["https://wellfound.com/*"],
   "action": {
     "default_popup": "popup.html",
-    "default_icon": {
-      "128": "icon.svg"
-    }
+    "default_icon": "icon.svg"
   },
   "content_scripts": [
     {
