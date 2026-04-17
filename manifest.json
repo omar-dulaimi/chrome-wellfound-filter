@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Wellfound India Filter",
+  "name": "Wellfound Filter",
   "version": "1.2",
   "description": "Hides Wellfound job listings based on configurable filter rules.",
   "icons": {

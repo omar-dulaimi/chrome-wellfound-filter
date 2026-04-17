@@ -1,4 +1,4 @@
-# Wellfound India Filter — Project Notes
+# Wellfound Filter — Project Notes
 
 ## Match Pattern
 The site URL is `https://wellfound.com/jobs` — no `www.` prefix.
