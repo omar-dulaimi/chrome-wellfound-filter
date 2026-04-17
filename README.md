@@ -1,47 +1,63 @@
 # Wellfound Filter
 
-A Chrome extension that hides job listings on Wellfound based on customizable filter rules.
+A Chrome extension that filters job listings on [Wellfound](https://wellfound.com/jobs) based on configurable pattern rules.
+
+## Default Rules
+
+When first installed, the extension hides jobs matching:
+- **₹** in compensation field (Indian Rupee)
+- **india** in location field (case-insensitive, whole word)
 
 ## Features
 
-- Hide jobs by compensation (e.g., filter out jobs paying in specific currencies)
-- Hide jobs by location (e.g., filter out jobs in specific countries)
-- OR/AND logic — hide if ANY rule matches, or only if ALL rules match
-- NOT negation — invert any rule to show jobs that DON'T match
-- Real-time filtering as you scroll (MutationObserver for SPA support)
-- Settings persist across sessions
+- **Pattern matching** — Filter by any text pattern (currency symbols, country names, keywords)
+- **Field targeting** — Match against compensation, location, or anywhere in the job block
+- **OR/AND logic** — Hide if ANY rule matches, or only if ALL rules match
+- **NOT toggle** — Invert any rule to show jobs that DON'T match
+- **SPA support** — Uses MutationObserver to filter jobs as they're loaded on scroll
+- **Persistent settings** — Rules saved to Chrome local storage
 
 ## Installation
 
 1. Download this repository
 2. Open Chrome and go to `chrome://extensions/`
-3. Enable **Developer mode** (top-right toggle)
-4. Click **Load unpacked**
-5. Select the extension folder
+3. Enable **Developer mode** (top-right)
+4. Click **Load unpacked** and select the extension folder
 
 ## Usage
 
-1. Navigate to `https://wellfound.com/jobs`
-2. Click the extension icon in the Chrome toolbar
-3. Toggle the filter on/off
-4. Add rules:
-   - **Pattern**: Text to match (e.g., `₹`, `India`, `$`)
-   - **Field**: Compensation, Location, or Anywhere
-   - **NOT**: Check to show jobs that DON'T match
+1. Visit `https://wellfound.com/jobs`
+2. Click the extension icon in the toolbar
+3. Configure rules in the popup:
+   - **Pattern**: Text to match (e.g., `₹`, `India`, `£`, `$`)
+   - **Field**: Comp. (compensation), Location, or Anywhere
+   - **NOT**: Check to show jobs that DON'T match this rule
+4. Use the toggle to enable/disable filtering
 
-## Development
+## How It Works
 
-This is vanilla JavaScript with no build step. Edit files directly.
+The content script (`content.js`) runs on `https://wellfound.com/jobs*` and:
+1. Loads settings from `chrome.storage.local`
+2. Finds job blocks using `[data-test="StartupResult"]` selector
+3. Checks compensation via `.styles_compensation__*` and location via `.styles_location__*` classes
+4. Hides matching blocks with `display: none`
+5. Uses MutationObserver to filter new jobs as they're lazy-loaded
 
-### Files
+Note: The CSS class selectors (`.styles_compensation__*`, `.styles_location__*`) are hashed by Wellfound and may change on redeploys. If filtering stops working, inspect the page to find updated selectors.
 
-- `manifest.json` — Extension manifest (Manifest V3)
-- `content.js` — Content script (runs on wellfound.com/jobs)
-- `popup.html` / `popup.js` — Extension popup UI
+## Files
 
-### Reload
+| File | Purpose |
+|------|---------|
+| `manifest.json` | Extension manifest (Manifest V3) |
+| `content.js` | Content script injected on wellfound.com/jobs |
+| `popup.html` | Extension popup UI |
+| `popup.js` | Popup JavaScript |
+| `icon.svg` | Extension icon |
 
-After editing files, click the refresh icon on the extension card in `chrome://extensions/`.
+## Reload
+
+After editing files, refresh the extension at `chrome://extensions/`.
 
 ## License
 
