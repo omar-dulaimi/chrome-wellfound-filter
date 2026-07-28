@@ -10,12 +10,12 @@ When first installed, the extension hides jobs matching:
 
 ## Features
 
-- **Pattern matching** — Filter by any text pattern (currency symbols, country names, keywords)
-- **Field targeting** — Match against compensation, location, or anywhere in the job block
-- **OR/AND logic** — Hide if ANY rule matches, or only if ALL rules match
-- **NOT toggle** — Invert any rule to show jobs that DON'T match
-- **SPA support** — Uses MutationObserver to filter jobs as they're loaded on scroll
-- **Persistent settings** — Rules saved to Chrome local storage
+- **Pattern matching**: Filter by any text pattern (currency symbols, country names, keywords)
+- **Field targeting**: Match against compensation, location, or anywhere in the job block
+- **OR/AND logic**: Hide if ANY rule matches, or only if ALL rules match
+- **NOT toggle**: Invert any rule to show jobs that DON'T match
+- **SPA support**: Uses MutationObserver to filter jobs as they're loaded on scroll
+- **Persistent settings**: Rules saved to Chrome local storage
 
 ## Installation
 

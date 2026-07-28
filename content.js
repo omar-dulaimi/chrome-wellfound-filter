@@ -1,4 +1,4 @@
-// Wellfound Filter — content script
+// Wellfound Filter content script
 
 const DEFAULTS = {
   enabled: true,

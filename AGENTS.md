@@ -1,4 +1,4 @@
-# Wellfound Filter — Agent Notes
+# Wellfound Filter: Agent Notes
 
 ## Extension Loading
 
@@ -24,7 +24,7 @@ If filtering stops working, inspect the DOM and update these class names in `con
 1. Load unpacked in Chrome
 2. Navigate to `https://wellfound.com/jobs`
 3. Verify companies with ₹ in compensation or "India" in location are hidden
-4. Scroll — new results should be filtered automatically (MutationObserver)
+4. Scroll, and new results should be filtered automatically (MutationObserver)
 
 ## No Build Step
 
